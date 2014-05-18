@@ -1,0 +1,8 @@
+﻿Group: Shipping rate computation
+FriendlyName: Stores Pickup
+SystemName: Shipping.StoresPickup
+Version: 1.00
+SupportedVersions: 3.20
+Author: AxiomX - Juan Lara
+DisplayOrder: 1
+FileName: Nop.Plugin.Shipping.StoresPickup.dll

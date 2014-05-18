@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.Shipping.StoresPickup.Models.ConfigurationModel
+@using Nop.Web.Framework;
+@using (Html.BeginForm())
+{
+    <div>Config Stores Pickup</div>
+    <table class="adminContent">
+
+        <tr>
+            <td class="adminTitle">
+                Stores:
+            </td>
+            <td class="adminData">
+                @*Html.DropDownListFor(model => model.ListaTiendas, Model.ListaTiendas, new { @class = "dropdownlists" })*@
+                @Html.EditorFor(model => model.Tiendas)
+                @Html.ValidationMessageFor(model => model.Tiendas)
+
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2" width="100%">
+                <input type="submit" name="save" class="t-button" value="@T("Admin.Common.Save")" />
+            </td>
+        </tr>
+    </table>    
+}
