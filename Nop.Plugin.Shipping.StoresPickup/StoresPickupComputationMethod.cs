@@ -91,9 +91,8 @@ namespace Nop.Plugin.Shipping.StoresPickup
             var lista = _ffSettings.Tiendas.Split(';');
             foreach (var item in lista)
             {
-               
-
-                var option = new ShippingOption(); // Entregar normal con 10.000
+                
+                var option = new ShippingOption(); 
                 option.Name = "Pick up on Store: " + item.ToString();
                 option.Rate = 0;
                 response.ShippingOptions.Add(option);

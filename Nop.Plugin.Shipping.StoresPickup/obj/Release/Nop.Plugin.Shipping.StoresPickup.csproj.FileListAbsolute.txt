@@ -1,0 +1,7 @@
+D:\Clientes\Juan Lara\Fruta Fresca\Presentation\Nop.Web\Plugins\Shipping.StoresPickup\Description.txt
+D:\Clientes\Juan Lara\Fruta Fresca\Presentation\Nop.Web\Plugins\Shipping.StoresPickup\logo.jpg
+D:\Clientes\Juan Lara\Fruta Fresca\Presentation\Nop.Web\Plugins\Shipping.StoresPickup\Nop.Plugin.Shipping.StoresPickup.dll
+D:\Clientes\Juan Lara\Fruta Fresca\Presentation\Nop.Web\Plugins\Shipping.StoresPickup\Nop.Plugin.Shipping.StoresPickup.pdb
+D:\Clientes\Juan Lara\Fruta Fresca\Plugins\Nop.Plugin.Shipping.StoresPickup\obj\Release\Nop.Plugin.Shipping.StoresPickup.csprojResolveAssemblyReference.cache
+D:\Clientes\Juan Lara\Fruta Fresca\Plugins\Nop.Plugin.Shipping.StoresPickup\obj\Release\Nop.Plugin.Shipping.StoresPickup.dll
+D:\Clientes\Juan Lara\Fruta Fresca\Plugins\Nop.Plugin.Shipping.StoresPickup\obj\Release\Nop.Plugin.Shipping.StoresPickup.pdb
