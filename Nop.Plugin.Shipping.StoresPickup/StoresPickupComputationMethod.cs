@@ -156,7 +156,8 @@ namespace Nop.Plugin.Shipping.StoresPickup
             _settingService.SaveSetting(settings);
 
             //locales
-            this.AddOrUpdatePluginLocaleResource("Plugins.Shipping.StoresPickup.Fields.Tiendas", "Tiendas");
+            this.AddOrUpdatePluginLocaleResource("Plugins.Shipping.StoresPickup.Fields.Stores", "List of stores");
+            this.AddOrUpdatePluginLocaleResource("Plugins.Shipping.StoresPickup.Fields.Stores.Hint", "Your store list separated by semicolon (e.g. store 1; store 2;…)");
 
             base.Install();
         }
@@ -170,7 +171,7 @@ namespace Nop.Plugin.Shipping.StoresPickup
             _settingService.DeleteSetting<StoresPickupSettings>();
 
             //locales
-            this.DeletePluginLocaleResource("Plugins.Shipping.StoresPickup.Fields.Tiendas");
+            this.DeletePluginLocaleResource("Plugins.Shipping.StoresPickup.Fields.stores");
 
             base.Uninstall();
         }

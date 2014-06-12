@@ -5,7 +5,7 @@
 @using Nop.Web.Framework;
 @using (Html.BeginForm())
 {
-    <div>Config Stores Pickup</div>
+
     <table class="adminContent">
 
         <tr>
@@ -13,7 +13,7 @@
                 @Html.NopLabelFor(model => model.Tiendas):
             </td>
             <td class="adminData">
-                @*Html.DropDownListFor(model => model.ListaTiendas, Model.ListaTiendas, new { @class = "dropdownlists" })*@
+               
                 @Html.EditorFor(model => model.Tiendas)
                 @Html.ValidationMessageFor(model => model.Tiendas)
                 
