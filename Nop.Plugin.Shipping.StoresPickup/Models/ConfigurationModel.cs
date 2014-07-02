@@ -5,7 +5,7 @@ namespace Nop.Plugin.Shipping.StoresPickup.Models
 {
     public class ConfigurationModel : BaseNopModel
     {
-        [NopResourceDisplayName("Plugins.Shipping.StoresPickup.Fields.stores")]
+        [NopResourceDisplayName("Plugins.Shipping.StoresPickup.Fields.Stores")]
         public string Tiendas { get; set; }
         [NopResourceDisplayName("Plugins.Shipping.StoresPickup.Fields.type")]
         public string Tipo { get; set; }

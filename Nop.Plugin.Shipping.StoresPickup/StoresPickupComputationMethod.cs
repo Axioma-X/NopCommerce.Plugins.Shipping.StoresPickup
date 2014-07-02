@@ -23,6 +23,7 @@ using Nop.Services.Logging;
 using Nop.Services.Orders;
 using Nop.Services.Shipping;
 using Nop.Services.Shipping.Tracking;
+using Nop.Web.Framework.Localization;
 
 namespace Nop.Plugin.Shipping.StoresPickup
 {
@@ -77,7 +78,33 @@ namespace Nop.Plugin.Shipping.StoresPickup
         #endregion
 
         #region Methods
+        private Localizer _localizer;
+        public Localizer T
+        {
+            get
+            {
+                if (_localizer == null)
+                {
+                    //null localizer
+                    //_localizer = (format, args) => new LocalizedString((args == null || args.Length == 0) ? format : string.Format(format, args));
 
+                    //default localizer
+                    _localizer = (format, args) =>
+                    {
+                        var resFormat = _localizationService.GetResource(format);
+                        if (string.IsNullOrEmpty(resFormat))
+                        {
+                            return new LocalizedString(format);
+                        }
+                        return
+                            new LocalizedString((args == null || args.Length == 0)
+                                                    ? resFormat
+                                                    : string.Format(resFormat, args));
+                    };
+                }
+                return _localizer;
+            }
+        }
         /// <summary>
         ///  Gets available shipping options
         /// </summary>
@@ -92,8 +119,8 @@ namespace Nop.Plugin.Shipping.StoresPickup
             foreach (var item in lista)
             {
                 
-                var option = new ShippingOption(); 
-                option.Name = "Pick up on Store: " + item.ToString();
+                var option = new ShippingOption();
+                option.Name = T("Plugins.Shipping.StoresPickup.Selection") + item.ToString();
                 option.Rate = 0;
                 response.ShippingOptions.Add(option);
             }
@@ -102,19 +129,19 @@ namespace Nop.Plugin.Shipping.StoresPickup
 
             if (getShippingOptionRequest.Items == null)
             {
-                response.AddError("No shipment items");
+                response.AddError(T("Plugins.Shipping.StoresPickup.NoItems")+"");
                 return response;
             }
 
             if (getShippingOptionRequest.ShippingAddress == null)
             {
-                response.AddError("Shipping address is not set");
+                response.AddError(T("Plugins.Shipping.StoresPickup.NoAddress")+"");
                 return response;
             }
 
             if (getShippingOptionRequest.ShippingAddress.Country == null)
             {
-                response.AddError("Shipping country is not set");
+                response.AddError(T("Plugins.Shipping.StoresPickup.NoCountry") + "");
                 return response;
             }
 
@@ -158,7 +185,10 @@ namespace Nop.Plugin.Shipping.StoresPickup
             //locales
             this.AddOrUpdatePluginLocaleResource("Plugins.Shipping.StoresPickup.Fields.Stores", "List of stores");
             this.AddOrUpdatePluginLocaleResource("Plugins.Shipping.StoresPickup.Fields.Stores.Hint", "Your store list separated by semicolon (e.g. store 1; store 2;…)");
-
+            this.AddOrUpdatePluginLocaleResource("Plugins.Shipping.StoresPickup.Selection", "Pick up on Store: ");
+            this.AddOrUpdatePluginLocaleResource("Plugins.Shipping.StoresPickup.NoItems", "No shipment items");
+            this.AddOrUpdatePluginLocaleResource("Plugins.Shipping.StoresPickup.NoAddress", "Shipping address is not set");
+            this.AddOrUpdatePluginLocaleResource("Plugins.Shipping.StoresPickup.NoCountry", "Shipping country is not set");
             base.Install();
         }
 
@@ -171,8 +201,12 @@ namespace Nop.Plugin.Shipping.StoresPickup
             _settingService.DeleteSetting<StoresPickupSettings>();
 
             //locales
-            this.DeletePluginLocaleResource("Plugins.Shipping.StoresPickup.Fields.stores");
-
+            this.DeletePluginLocaleResource("Plugins.Shipping.StoresPickup.Fields.Stores");
+            this.DeletePluginLocaleResource("Plugins.Shipping.StoresPickup.Fields.Stores.Hint");
+            this.DeletePluginLocaleResource("Plugins.Shipping.StoresPickup.Selection");
+            this.DeletePluginLocaleResource("Plugins.Shipping.StoresPickup.NoItems");
+            this.DeletePluginLocaleResource("Plugins.Shipping.StoresPickup.NoAddress");
+            this.DeletePluginLocaleResource("Plugins.Shipping.StoresPickup.NoCountry");
             base.Uninstall();
         }
 

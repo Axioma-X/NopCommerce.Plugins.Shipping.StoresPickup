@@ -104,7 +104,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ShippingStoresPickup\Configure.cshtml" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>
